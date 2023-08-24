@@ -31,7 +31,7 @@ int main( void ) {
     if ( temperatureScale != FAHRENHEIT && temperatureScale != CELSIUS ) {
         // bailing out of program due to illegal input
         cout << "Sorry - temperature scale must be either C or F.\n";
-        cout << "Press 'Enter' to continue...";
+        cout << "Press 'Enter' to exit...";
         cin.ignore();
         cin.get();
         return 1;

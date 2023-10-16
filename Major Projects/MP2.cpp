@@ -52,11 +52,12 @@ int main ( void ) {
                     die2value = rollDie();
                     cout << "You rolled a " << die1value << " and a " << die2value << "." << endl;
                     turnScore += (die1value + die2value); // Add your roll to your score this turn
-                    if (!isTurnPointsLost(die1value,die2value)) 
+                    if (!isTurnPointsLost(die1value,die2value)) {
                         cout << "Your score this turn is now " << turnScore << "." << endl; 
-                    if (hasWinningScore(playerScore + turnScore)) { // Check if Player has Won
-                        cout << "You won! You are the Pig Champion!";
-                        turnPass = true;
+                        if (hasWinningScore(playerScore + turnScore)) { // Check if Player has Won
+                            cout << "You won! You are the Pig Champion!";
+                            turnPass = true;
+                        }
                     }
                     if (isTurnPointsLost(die1value,die2value)) {
                         cout << "You rolled a 1, so your turn score has been lost." << endl;

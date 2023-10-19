@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int countWords(string str);
+int romanCharValue(string str);
 
 int main() {
     string input = "";
@@ -11,10 +11,10 @@ int main() {
         cout << "Enter a line or Q to quit: ";
         getline(cin, input);
         if(input == "Q") break;
-        cout << "Word count: " << countWords(input) << endl;
+        cout << "Word count: " << romanCharValue(input) << endl;
     }
 }
-int countWords(string str) {
+int romanCharValue(string str) {
     int words = 1;
     for(int i = 0; i < str.length(); i++) {
         if(str[i] == ' ' && str[i-1] != ' ') words++;

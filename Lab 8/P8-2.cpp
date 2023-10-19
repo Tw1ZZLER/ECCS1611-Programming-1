@@ -15,14 +15,9 @@ int main() {
     }
 }
 int countWords(string str) {
-    int words = 0;
-    bool newWord = false;
-    for(char c: str) {
-        if(c != ' ') {
-            newWord = true;
-        }
-        else newWord = false;
-        if(newWord == true) words++;
+    int words = 1;
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ' && str[i-1] != ' ') words++;
     }
     return words;
 }

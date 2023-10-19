@@ -10,14 +10,19 @@ int main() {
 
     while (true) {
         cout << "Enter a Roman Number or Q to quit: ";
-        //getline(cin, input);
+        getline(cin, input);
         if(input == "Q") break;
         cout << input << " = " << convertRomanToInt(input) << endl;
     }
     
 }
 int convertRomanToInt(string s) {
-
+    int integerValue = 0;
+    for(int i = 0; i < s.length(); i++) {
+        if(romanCharValue(s[i]) < romanCharValue(s[i+1])) integerValue -= romanCharValue(s[i]);
+        else integerValue += romanCharValue(s[i]);
+    }
+    return integerValue;
 }
 int romanCharValue(char r) {
     switch(r) {
@@ -29,4 +34,5 @@ int romanCharValue(char r) {
         case 'D': return 500;
         case 'M': return 1000;
     }
+    return 0;
 }

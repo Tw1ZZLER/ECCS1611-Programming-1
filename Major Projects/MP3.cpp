@@ -6,6 +6,14 @@
 #include <string> 
 using namespace std;
 
+int getPlayerInput(string playerName);
+bool isLegalMove(char board[], int location);
+void placeMarkOnBoard(char board[], char playerMark, int location);
+void clearBoard(char board[]);
+bool hasThreeInRow(char board[], char playerMark);
+void displayBoard(char board[]);
+void displayGameStats(int ties, int player1Score, int player2Score);
+
 int main() {
 	const int STUDENTS = 4;
 	const int QUIZZES = 2;
@@ -24,4 +32,25 @@ int main() {
 			cin >> scores[st][quiz];
 		}
 	}
+}
+int getPlayerInput(string playerName) {
+	
+}
+bool isLegalMove(char board[], int location) {
+	
+}
+void placeMarkOnBoard(char board[], char playerMark, int location) {
+	
+}
+void clearBoard(char board[]) {
+	
+}
+bool hasThreeInRow(char board[], char playerMark) {
+	
+}
+void displayBoard(char board[]) {
+	
+}
+void displayGameStats(int ties, int player1Score, int player2Score) {
+	
 }

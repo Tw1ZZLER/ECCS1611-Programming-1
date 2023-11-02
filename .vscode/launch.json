@@ -9,7 +9,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/P9-2",
+            "program": "${fileDirname}/Gary",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

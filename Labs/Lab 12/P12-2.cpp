@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -21,11 +22,15 @@ int main() {
     int charCount = 0;
 
     while (file >> word) {
-        wordCount++;
+        bool validWord = false;
         for (char& c : word) {
-            if (!isspace(c)) {
+            if (isalpha(c)) {
                 charCount++;
+                validWord = true;
             }
+        }
+        if (validWord) {
+            wordCount++;
         }
     }
 

@@ -19,14 +19,20 @@ const int BOARD_SIZE = 9;
 
 int main() {
 	// Main Variables
-	string player1 = "";
-	string player2 = "";
+    // String variables to store player names
+	string player1 = ""; 
+	string player2 = ""; 
+    // Board array, stores all characters for each place on the board.
 	char board[BOARD_SIZE] = {'1','2','3','4','5','6','7','8','9'};
+	// Game Stats
 	int ties = 0;
 	int player1Score = 0;
 	int player2Score = 0;
+    // Character input for the player to play again.
 	char playAgain = 'y';
+    // Index for board array to find location of certain char
 	int location = 0;
+    // Boolean variable that swaps every game to alternate who goes first.
 	bool isPlayer1First = true;
 
 	// Get Player's Names
@@ -37,10 +43,14 @@ int main() {
 	cin >> player2;
 
 	// Loop for Every Game
+	// This loop runs every time a new game is started.
+	// It is stopped when the player chooses 'n' in the play again prompt.
 	do {
     	bool isPlayer1sTurn = isPlayer1First;
 
 		// Loop for Every Turn
+		// This loop runs for every player's turn.
+		// It is stopped when hasThreeInRow is true or isTie is true.
 		do {
 			displayBoard(board);
 
@@ -81,6 +91,7 @@ int main() {
 			cout << "The game is a tie!\n";
 			ties++;
 		}
+
 		// End of Game 
 		clearBoard(board);
 		displayGameStats(ties,player1Score,player2Score);
@@ -89,6 +100,7 @@ int main() {
 		isPlayer1First = !isPlayer1First;
 	} while(playAgain == 'y');
 }
+
 /* Returns a value between 1 and 9, inclusive, indicating the square where the current player wants to place 
    their mark on the board.
    @param playerName The name of the player you are getting the input from.
@@ -98,17 +110,22 @@ int getPlayerInput(string playerName) {
 	while(true) {
 		cout << "\033[0m" << playerName << ", enter where you'd like to place your mark (1-9): ";
 		cin >> input;
+
 		if(cin.fail()) {
 			cin.clear();
 			cin.ignore();
 			cout << "\033[31mERROR: Input must be an integer 1-9!\n";
 		}
+
 		else if(!(input > 0 && input < 10)) {
 			cout << "\033[31mERROR: Input must be an integer 1-9!\n";
 		}
-		else return input - 1;
-	}
+
+        // Subtract 1 from input to convert from 1-9 input to 0-8 array index
+        else return input - 1; 	
+    }
 }
+
 /* Returns true if the indicated location on the board yet not yet been played, false otherwise.
    @param board[] The array of the Tic-Tac-Toe board.
    @param location The integer location (1-9) of an index on the board array.
@@ -117,6 +134,7 @@ bool isLegalMove(char board[], int location) {
 	if(board[location] == 'X' || board[location] == 'O') return false;
 	else return true;
 }
+
 /* Places the indicated mark at the specified board location; routine assumes that this is a legal placement.
    @param board[] The array of the Tic-Tac-Toe board.
    @param playerMark The character 'X' or 'O' depending on which player is placing the mark.
@@ -125,6 +143,7 @@ bool isLegalMove(char board[], int location) {
 void placeMarkOnBoard(char board[], char playerMark, int location) {
 	board[location] = playerMark;
 }
+
 /* Restores the tic-tac-toe board to its original (i.e., with no crosses or circles being marked) configuration.
    @param board[] The array of the Tic-Tac-Toe board.
 */
@@ -133,34 +152,45 @@ void clearBoard(char board[]) {
 		board[i] = '1' + i;
 	}
 }
+
 /* Returns true if, for the specified mark, the board has the equivalent of three of those marks in a row, 
    either vertically, horizontally, or diagonally.
    @param board[] The array of the Tic-Tac-Toe board.
    @param playerMark The character 'X' Or 'O', depending on which player is being checked.
 */
 bool hasThreeInRow(char board[], char playerMark) {
+    // Check rows for three in a row
 	for(int i = 0; i < BOARD_SIZE; i = i + 3) {
 		if(board[i] == playerMark && board[i + 1] == playerMark && board[i + 2] == playerMark) return true;
 	}
+
+    // Check columns for three in a row
 	for(int i = 0; i < (BOARD_SIZE / 3); i++) {
 		if(board[i] == playerMark && board[i + 3] == playerMark && board[i + 6] == playerMark) return true;
 	}
+
+    // Check for diagonals
 	if(board[0] == playerMark && board[4] == playerMark && board[8] == playerMark) return true;
 	if(board[2] == playerMark && board[4] == playerMark && board[6] == playerMark) return true;
 	return false;
 }
+
 /* Checks all values in board for Xs and Os. If there are all Xs and Os, then returns true.
    @param board[] The array of the Tic-Tac-Toe board.
 */
 bool isTie(char board[]) {
+    // False is returned if there are still any numbers, which are playable spaces.
     for(int i = 0; i < BOARD_SIZE; i++) {
         if(board[i] != 'X' && board[i] != 'O') {
             return false;
         }
     }
+
     return true;
 }
+
 /* Prints out the current board; the board display must be as shown above.
+   Numbers should be in a numpad or calculator layout, with board lines between all the numbers.
    @param board[] The array of the Tic-Tac-Toe board.
 */
 void displayBoard(char board[]) {
@@ -170,6 +200,7 @@ void displayBoard(char board[]) {
 	<< "\n---+---+---"
 	<< "\n " << board[0] << " | " << board[1] << " | " << board[2] << "\n\n";
 }
+
 /* Prints out the “stats” for all the games: number of games tied, number of games player 1 won,
    and number of games player 2 won.
    @param ties The integer number of ties of all games.

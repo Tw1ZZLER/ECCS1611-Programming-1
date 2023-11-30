@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 const int SIZE = 26;
@@ -24,58 +25,59 @@ int main() {
         for(char& c : word) {
             charCount++;
             switch(c) {
-                case 'a': vars[0]++;
-                case 'b': vars[1]++;
-                case 'c': vars[2]++;
-                case 'd': vars[3]++;
-                case 'e': vars[4]++;
-                case 'f': vars[5]++;
-                case 'g': vars[6]++;
-                case 'h': vars[7]++;
-                case 'i': vars[8]++;
-                case 'j': vars[9]++;
-                case 'k': vars[10]++;
-                case 'l': vars[11]++;
-                case 'm': vars[12]++;
-                case 'n': vars[13]++;
-                case 'o': vars[14]++;
-                case 'p': vars[15]++;
-                case 'q': vars[16]++;
-                case 'r': vars[17]++;
-                case 's': vars[18]++;
-                case 't': vars[19]++;
-                case 'u': vars[20]++;
-                case 'v': vars[21]++;
-                case 'w': vars[22]++;
-                case 'x': vars[23]++;
-                case 'y': vars[24]++;
-                case 'z': vars[25]++;
-                case 'A': vars[0]++;
-                case 'B': vars[1]++;
-                case 'C': vars[2]++;
-                case 'D': vars[3]++;
-                case 'E': vars[4]++;
-                case 'F': vars[5]++;
-                case 'G': vars[6]++;
-                case 'H': vars[7]++;
-                case 'I': vars[8]++;
-                case 'J': vars[9]++;
-                case 'K': vars[10]++;
-                case 'L': vars[11]++;
-                case 'M': vars[12]++;
-                case 'N': vars[13]++;
-                case 'O': vars[14]++;
-                case 'P': vars[15]++;
-                case 'Q': vars[16]++;
-                case 'R': vars[17]++;
-                case 'S': vars[18]++;
-                case 'T': vars[19]++;
-                case 'U': vars[20]++;
-                case 'V': vars[21]++;
-                case 'W': vars[22]++;
-                case 'X': vars[23]++;
-                case 'Y': vars[24]++;
-                case 'Z': vars[25]++;
+                case 'a': vars[0]++; break;
+                case 'b': vars[1]++; break;
+                case 'c': vars[2]++; break;
+                case 'd': vars[3]++; break;
+                case 'e': vars[4]++; break;
+                case 'f': vars[5]++; break;
+                case 'g': vars[6]++; break;
+                case 'h': vars[7]++; break;
+                case 'i': vars[8]++; break;
+                case 'j': vars[9]++; break;
+                case 'k': vars[10]++; break;
+                case 'l': vars[11]++; break;
+                case 'm': vars[12]++; break;
+                case 'n': vars[13]++; break;
+                case 'o': vars[14]++; break;
+                case 'p': vars[15]++; break;
+                case 'q': vars[16]++; break;
+                case 'r': vars[17]++; break;
+                case 's': vars[18]++; break;
+                case 't': vars[19]++; break;
+                case 'u': vars[20]++; break;
+                case 'v': vars[21]++; break;
+                case 'w': vars[22]++; break;
+                case 'x': vars[23]++; break;
+                case 'y': vars[24]++; break;
+                case 'z': vars[25]++; break;
+                case 'A': vars[0]++; break;
+                case 'B': vars[1]++; break;
+                case 'C': vars[2]++; break;
+                case 'D': vars[3]++; break;
+                case 'E': vars[4]++; break;
+                case 'F': vars[5]++; break;
+                case 'G': vars[6]++; break;
+                case 'H': vars[7]++; break;
+                case 'I': vars[8]++; break;
+                case 'J': vars[9]++; break;
+                case 'K': vars[10]++; break;
+                case 'L': vars[11]++; break;
+                case 'M': vars[12]++; break;
+                case 'N': vars[13]++; break;
+                case 'O': vars[14]++; break;
+                case 'P': vars[15]++; break;
+                case 'Q': vars[16]++; break;
+                case 'R': vars[17]++; break;
+                case 'S': vars[18]++; break;
+                case 'T': vars[19]++; break;
+                case 'U': vars[20]++; break;
+                case 'V': vars[21]++; break;
+                case 'W': vars[22]++; break;
+                case 'X': vars[23]++; break;
+                case 'Y': vars[24]++; break;
+                case 'Z': vars[25]++; break;
+                default: charCount--; break;
             }
         }
     }
@@ -84,8 +86,7 @@ int main() {
     cout << "Frequency:\n";
 
     for(int i = 0; i < SIZE; i++) {
-        cout << "'" << static_cast<char>('A' + i) << "': " << (vars[i]) << endl;
+        cout << "'" << static_cast<char>('A' + i) << "': " << fixed << setprecision(3) << (vars[i] / double(charCount)) * 100 << endl;
     }
-
     return 0;
 }

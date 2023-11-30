@@ -2,6 +2,7 @@
 #include <math.h>
 #include <string>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 bool isLeapYear(int year);
@@ -47,28 +48,30 @@ int main() {
 
     while(true) {
         cout << "Enter a month and a year or Q to quit: ";
-        cin >> month >> year;
+        cin >> monthName;
+        if(monthName == "Q") break;
+        cin >> year;
         if(cin.fail()) break;
 
+        if(monthName == "January")   month = 1;
+        if(monthName == "February")  month = 2;
+        if(monthName == "March")     month = 3;
+        if(monthName == "April")     month = 4;
+        if(monthName == "May")       month = 5;
+        if(monthName == "June")      month = 6;
+        if(monthName == "July")      month = 7;
+        if(monthName == "August")    month = 8;
+        if(monthName == "September") month = 9;
+        if(monthName == "October")   month = 10;
+        if(monthName == "November")  month = 11;
+        if(monthName == "December")  month = 12;
+        
         int firstDay = dayOfWeek(month, 1, year);
-
-        switch(month) {
-            case 1: monthName =  "January";   break;
-            case 2: monthName =  "February";  break;
-            case 3: monthName =  "March";     break;
-            case 4: monthName =  "April";     break;
-            case 5: monthName =  "May";       break;
-            case 6: monthName =  "June";      break;
-            case 7: monthName =  "July";      break;
-            case 8: monthName =  "August";    break;
-            case 9: monthName =  "September"; break;
-            case 10: monthName = "October";   break;
-            case 11: monthName = "November";  break;
-            case 12: monthName = "December";  break;
-        }
-
         int days = daysInMonth(month, year);
         int currentDay = 1;
+
+        cout << endl << monthName << " " << year << endl;
+        cout << "Sa Fr Th We Tu Mo Su" << endl;
         for(int i = 0; i < 6; i++) {
             for(int j = 0; j < 7; j++) {
                 if(i == 0 && j < firstDay - 1) { // If it's the first week and we're before the first day of the month
@@ -79,6 +82,32 @@ int main() {
                 }
             }
             cout << endl;
+        }
+
+        // Get datafile information, create ofstream variable
+        string datafile;
+        cout << "Output file: ";
+        cin >> datafile;
+        ofstream file(datafile);
+        if(!file) {
+            cout << "Unable to open or create file.";
+            return 1;
+        }
+
+        // Do the same thing as cout in the previous block, but saved to text file!
+        file << monthName << " " << year << endl;
+        file << "Sa Fr Th We Tu Mo Su" << endl;
+        currentDay = 1;
+        for(int i = 0; i < 6; i++) {
+            for(int j = 0; j < 7; j++) {
+                if(i == 0 && j < firstDay - 1) { // If it's the first week and we're before the first day of the month
+                    file << "   "; // Print empty space
+                } else if(currentDay <= days) { // If we're within the valid range of days for the month
+                    file << setw(2) << currentDay << " ";
+                    currentDay++;
+                }
+            }
+            file << endl;
         }
     }
 }

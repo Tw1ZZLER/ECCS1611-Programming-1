@@ -84,7 +84,7 @@ int main() {
     cout << "Frequency:\n";
 
     for(int i = 0; i < SIZE; i++) {
-        cout << "'" << static_cast<char>('A' + i) << "': " << (vars[i] / charCount) << endl;
+        cout << "'" << static_cast<char>('A' + i) << "': " << (vars[i]) << endl;
     }
 
     return 0;

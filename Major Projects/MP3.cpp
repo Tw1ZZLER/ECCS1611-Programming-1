@@ -101,7 +101,7 @@ int main() {
 	} while(playAgain == 'y');
 }
 
-/* Returns a value between 1 and 9, inclusive, indicating the square where the current player wants to place 
+/** Returns a value between 1 and 9, inclusive, indicating the square where the current player wants to place 
    their mark on the board.
    @param playerName The name of the player you are getting the input from.
 */
@@ -126,7 +126,7 @@ int getPlayerInput(string playerName) {
     }
 }
 
-/* Returns true if the indicated location on the board yet not yet been played, false otherwise.
+/** Returns true if the indicated location on the board yet not yet been played, false otherwise.
    @param board[] The array of the Tic-Tac-Toe board.
    @param location The integer location (1-9) of an index on the board array.
 */
@@ -135,7 +135,7 @@ bool isLegalMove(char board[], int location) {
 	else return true;
 }
 
-/* Places the indicated mark at the specified board location; routine assumes that this is a legal placement.
+/** Places the indicated mark at the specified board location; routine assumes that this is a legal placement.
    @param board[] The array of the Tic-Tac-Toe board.
    @param playerMark The character 'X' or 'O' depending on which player is placing the mark.
    @param location The integer location (1-9) where the player wants to place the mark.
@@ -144,7 +144,7 @@ void placeMarkOnBoard(char board[], char playerMark, int location) {
 	board[location] = playerMark;
 }
 
-/* Restores the tic-tac-toe board to its original (i.e., with no crosses or circles being marked) configuration.
+/** Restores the tic-tac-toe board to its original (i.e., with no crosses or circles being marked) configuration.
    @param board[] The array of the Tic-Tac-Toe board.
 */
 void clearBoard(char board[]) {
@@ -153,7 +153,7 @@ void clearBoard(char board[]) {
 	}
 }
 
-/* Returns true if, for the specified mark, the board has the equivalent of three of those marks in a row, 
+/** Returns true if, for the specified mark, the board has the equivalent of three of those marks in a row, 
    either vertically, horizontally, or diagonally.
    @param board[] The array of the Tic-Tac-Toe board.
    @param playerMark The character 'X' Or 'O', depending on which player is being checked.
@@ -175,7 +175,7 @@ bool hasThreeInRow(char board[], char playerMark) {
 	return false;
 }
 
-/* Checks all values in board for Xs and Os. If there are all Xs and Os, then returns true.
+/** Checks all values in board for Xs and Os. If there are all Xs and Os, then returns true.
    @param board[] The array of the Tic-Tac-Toe board.
 */
 bool isTie(char board[]) {
@@ -189,7 +189,7 @@ bool isTie(char board[]) {
     return true;
 }
 
-/* Prints out the current board; the board display must be as shown above.
+/** Prints out the current board; the board display must be as shown above.
    Numbers should be in a numpad or calculator layout, with board lines between all the numbers.
    @param board[] The array of the Tic-Tac-Toe board.
 */
@@ -201,7 +201,7 @@ void displayBoard(char board[]) {
 	<< "\n " << board[0] << " | " << board[1] << " | " << board[2] << "\n\n";
 }
 
-/* Prints out the “stats” for all the games: number of games tied, number of games player 1 won,
+/** Prints out the “stats” for all the games: number of games tied, number of games player 1 won,
    and number of games player 2 won.
    @param ties The integer number of ties of all games.
    @param player1Score The integer number of how many wins player 1 has.

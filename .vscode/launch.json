@@ -4,7 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "MathTesting",
+            "request": "launch",
+            "mainClass": "MathTesting",
+            "projectName": "Programming-Coursework_9e2d9bb2"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Programming-Coursework_9e2d9bb2"
+        },
         {
             "name": "(gdb) Launch",
             "type": "cppdbg",
@@ -29,6 +42,5 @@
                 }
             ]
         }
-
     ]
 }

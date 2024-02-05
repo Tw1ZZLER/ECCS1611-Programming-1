@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Cubes",
+            "request": "launch",
+            "mainClass": "Cubes",
+            "projectName": "Programming-Coursework_9e2d9bb2"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListDemo",
+            "request": "launch",
+            "mainClass": "ArrayListDemo",
+            "projectName": "Programming-Coursework_9e2d9bb2"
+        },
+        {
+            "type": "java",
             "name": "MathTesting",
             "request": "launch",
             "mainClass": "MathTesting",

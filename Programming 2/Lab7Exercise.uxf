@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>440</y>
+      <w>264</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Vacation
+--
+Responsibilities
+-- requests time off of work
+-- Keep track of vacation time variable
+-- Ability for employee to request vacation time
+-- Ability for manager to approve vacation time</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>320</y>
+      <w>240</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>SickTime
+--
+Responsibilities
+-- Keep track of sick time variable
+-- Ability for employee to request sick time
+-- Ability for manager to approve sick time</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>176</y>
+      <w>328</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Hours
+--
+Responsibilities
+-- acts as the keystone of connectivity for all other classes
+-- Works with Check in/Out to generate hours payed
+-- Works with vacation to generate hours payed
+-- Works with SickTime to generate hours payed</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>184</y>
+      <w>168</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Manager
+--
+Responsibilities
+-- Approve sick time
+-- Change hours
+-- Approve vacation time</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>320</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>CheckIn
+--
+Responsibilities
+-- Takes current time
+-- Submits total hours worked to hours </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>176</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+Responsibilities
+-- Contain ID Number, 
+-- pay rate, 
+-- vacation hours, 
+-- sick time
+-- Ability to pay employee</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>232</x>
+      <y>16</y>
+      <w>208</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Pay
+--
+subtract taxes from gross pay
+create checks
+calculate pay from hours and pay rate
+subtract sick time from pay</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>112</y>
+      <w>24</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>224</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>128</y>
+      <w>208</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>240.0;60.0;240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>280</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>280</y>
+      <w>64</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>60.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>280</y>
+      <w>64</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>60.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>264</y>
+      <w>256</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>300.0;310.0;10.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>264</y>
+      <w>216</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>250.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
